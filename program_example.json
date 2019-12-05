@@ -1,0 +1,55 @@
+{
+  "title": "Program Title",
+  "series": "Series Name",
+  "description": "Program description\n\n This is where to put text about the program.\n\n Find us at ch17.tv.",
+  "date": "ISO standard date and time YYYY-MM-DDTHH:MM:SS",
+  "length": "HH:MM:SS",
+  "site": "geocoded location",
+  "tags": {
+    "presenters": [
+      "host",
+      "guest"
+    ],
+    "topics": []
+  },
+  "production": {
+    "worker": [
+      "worker name",
+      "other worker name"
+    ],
+    "community_producer": null,
+    "source": "channel 17", 
+    "sell": true,
+    "public": true,
+    "town": "williston",
+    "notes": "freeform notes , no validation, not to be indexed",
+    "live_status": [
+      "17",
+      "youtube",
+      "317"
+    ]
+  },
+  "complete": true,
+  "instances": [
+    {
+      "type": "digital_master",
+      "id": "AnotherProgram_F_12032019.mp4",
+      "notes": "notes"
+    },
+    {
+      "type": "web",
+      "id": "AnotherProgram_F_12032019.broadband.mp4",
+      "notes": "notes"
+    },
+    {
+      "type": "drupal",
+      "id": "12345",
+      "notes": "notes"
+    },
+    {
+      "type": "vhs",
+      "id": "5678",
+      "notes": "notes"
+    }
+  ]
+}
