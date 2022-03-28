@@ -1,42 +1,55 @@
 {
+  //basic metadata
+  "id":"hYDmakQwBw",
   "title": "Program Title",
   "series": "Series Name",
   "description": "Program description\n\n This is where to put text about the program.\n\n Find us at ch17.tv.",
   "date": "ISO standard date and time YYYY-MM-DDTHH:MM:SS",
-  "duration": "HH:MM:SS",
-  "site": "geocoded location",
+  "duration": "00:42:24",
+  "site": {
+    "placeId": "ChIJfdSkoYt6ykwRCIcjD188TNc", //using google maps place id, for the ability to pull more data about the selected location unreliable long term
+    "address": "294 N Winooski Ave, Burlington, VT 05401, USA",
+    "coordinates": "44°29'16.1\"N 73°12'28.5\"W"
+  },
   "tags": {
     "presenters": [
-      "host",
-      "guest"
+      "Luna Zeitlyn",
+      "Jordan Mitchell",
+      "Bernie Sanders"
     ],
-    "topics": []
+    "topics": [
+      "metadata",
+      "testing",
+      "cctv history",
+      "workflow"
+    ]
   },
   "agenda": [
     {"title": "Agenda Item", "timestamp": "00:00:00"},
-    {"title": "Agenda Item 2", "timestamp": "00:10:20"}
+    {"title": "Agenda Item 2", "timestamp": "00:10:20"},
+    {"title": "Agenda Item 3", "timestamp": "00:30:15"}
   ],
   "production": {
-    "worker": [
+    //internal production information
+    "worker": [ //the worker(s) who've touched the program in some way
       "worker name",
       "other worker name"
     ],
-    //put possible community producer feild here
-    "source": "channel 17",
-    "sell": true,
-    "public": true,
-    "town": "williston",
-    "notes": "freeform notes , no validation, not to be indexed",
-    "live_status": [
+    "source": "channel 17",   //the source organization of the program (Channel 17/Town Meeting TV, CCTV Productions, )
+    "sell": true,             //whether or not the program is approved for sale/distribution
+    "public": true,           //whether or not th program is available to the public for viewing
+    "town": "williston",      //for administrative purposes, the town claiming "ownership" of the production for quota reasons
+    "notes": "freeform notes , no validation, not to be indexed",     //general notes field
+    "live_status": [          //platforms the program was broadcasted live on
       "17",
       "youtube",
       "317"
     ]
   },
-  "complete": true,
+  "complete": true,           //
   "instances": [
     {
-      "type": "digital_master",
+      "type": "digital_archive",
       "id": "AnotherProgram_F_12032019.mp4",
       "notes": "notes"
     },
