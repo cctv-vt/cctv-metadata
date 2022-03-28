@@ -1,0 +1,135 @@
+{
+    "$schema": "https://json-schema.org/draft-04/schema",
+    "title":"Program",
+    "description":"A single program entry to describe a video found in CCTVs archive.",
+    "type":"object",
+    "properties": {
+        "title":{
+            "description": "The Title of the program entry, a short description",
+            "type":"string"
+        },
+        "series":{
+            "description":"The series that this program belongs to in id format",
+            "type":"string",
+            "pattern":"[A-z]{10}",
+            "format": "10 character id"
+        },
+        "description":{
+            "description": "A long form descrption of the program",
+            "type":"string",
+            "format": "markdown"
+        },
+        "date":{
+            "description": "The date and time of the event being covered, in rarer cases the time of edit",
+            "type":"string",
+            "pattern": "/d/d/d/d-/d/d-/d/dT/d/d:/d/d:/d/d",
+            "format": "ISO Date and Time"
+        },
+        "duration": {
+            "description": "The duration of the program video",
+            "pattern": "/d/d:/d/d:/d/d",
+            "format": "timestamp"
+        },
+        "site": {
+            "description": "a collection of ways to describe the event location",
+            "type":"object",
+            "properties": {
+                "placeID":{"type":"string","format": "google maps placeId"},
+                "address":{"type":"string", "format": "adress"},
+                "coordinates":{"type":"string", "format": "coordinates"}
+            }
+        },
+        "tags":{
+            "description": "A collection of related keywords, splt into types",
+            "type":"object",
+            "properties":{
+                "presenters":{
+                    "description": "Names of people who personally appear in the program",
+                    "type":"array",
+                    "items": {"type":"string"}
+                },
+                "topics":{
+                    "description": "related keywords/ topics the program is covering",
+                    "type":"array",
+                    "items": {"type":"string"}
+                }
+            }
+        },
+        "agenda": {
+            "description": "A list of timestamps, intended to corespond to key points in the program, eg agenda items, a change in guests, or key points of conversation",
+            "type":"array",
+            "items": { 
+                "type":"object",
+                "properties": {
+                    "title":{"type":"string"},
+                    "timestamp":{
+                        "type":"string",
+                        "pattern": "/d/d:/d/d:/d/d",
+                        "format": "timestamp"
+                    }
+                }
+            }
+        },
+        "worker":{
+            "description": "the worker(s) who've touched the program in some way",
+            "type":"array",
+            "items": {"type":"string"}
+        },
+        "source":{
+            "description": "the source organization of the program (Channel 17/Town Meeting TV, CCTV Productions, )",
+            "type":"string",
+            "enum": ["channel 17", "cctv productions", "van", "community", "other"]
+        },
+        "town": {
+            "description": "the municipal entity responsible for the program",
+            "type":"string",
+            "enum": ["burlington", "essex", "essex junction", "cittenden county", "cholchester", "international", "northeast", "national", "south burlington", "st george", "vermont", "williston", "winooski"]
+        },
+        "sell":{
+            "description": "whether or not the program is approved for sale/distribution",
+            "type":"boolean"
+        },
+        "public":{
+            "description": "whether or not th program is available to the public for viewing",
+            "type":"boolean"
+        },
+        "notes":{
+            "description": "general notes field for internal use only",
+            "type":"string"
+        },
+        "live_status":{
+            "description": "platforms the program was/will be broadcasted live on",
+            "type":"array",
+            "items": {
+                "type":"string",
+                "enum": ["17", "317", "youtube", "client youtube", "other"]
+            }
+        },
+        "complete":{
+            "description": "whether or not the metadata entry is considered complete (Program Passed QC)",
+            "type":"boolean"
+        },
+        "instances":{
+            "description": "an array of known archival copies of a program",
+            "type":"array",
+            "items": {
+                "type":"object",
+                "properties": {
+                    "type": {
+                        "description": "the format/media type of the archival instance",
+                        "type":"string",
+                        "enum": ["digital_archive", "web", "drupal", "vhs", "hi-8", "umatic", "dvd"]
+                    },
+                    "identifier":{
+                        "description": "the unique identifier used to locate the program, according to its type",
+                        "type":"string"
+                    },
+                    "notes": {
+                        "description": "general notes about the specific archival instance",
+                        "type":"string"
+                    }
+                }
+            }
+        }
+    }
+}
