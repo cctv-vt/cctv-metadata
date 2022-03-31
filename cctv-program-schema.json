@@ -1,7 +1,8 @@
 {
-    "$schema": "https://json-schema.org/draft-04/schema",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "title":"Program",
     "description":"A single program entry to describe a video found in CCTVs archive.",
+    "required": ["title","date"],
     "type":"object",
     "properties": {
         "title":{
@@ -125,7 +126,7 @@
             "description": "general notes field for internal use only",
             "type":"string"
         },
-        "live_status":{
+        "liveStatus":{
             "description": "platforms the program was/will be broadcasted live on",
             "type":"array",
             "items": {
