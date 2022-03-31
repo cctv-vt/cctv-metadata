@@ -36,7 +36,8 @@
             "properties": {
                 "placeID":{"type":"string","format": "google maps placeId"},
                 "address":{"type":"string", "format": "adress"},
-                "coordinates":{"type":"string", "format": "coordinates"}
+                "coordinates":{"type":"string", "format": "coordinates"},
+                "plainText":{"type":"string", "description": "way to bring over legacy place descriptions"}
             }
         },
         "tags":{
