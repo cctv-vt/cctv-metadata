@@ -51,7 +51,35 @@
                 "topics":{
                     "description": "related keywords/ topics the program is covering",
                     "type":"array",
-                    "items": {"type":"string"}
+                    "items": { "type":"string" }
+                },
+                "issues":{
+                    "description": "a predefined list of rleated keywords and tags",
+                    "type":"array",
+                    "items": {
+                        "type":"string",
+                        "enum": ["arts/music",
+                            "cctv productions",
+                            "development",
+                            "economy & business",
+                            "education","energy",
+                            "environment",
+                            "health",
+                            "history",
+                            "international",
+                            "law",
+                            "media",
+                            "military",
+                            "neighborhoods",
+                            "oral history",
+                            "planning",
+                            "politics & government",
+                            "social justice",
+                            "sports & recreation",
+                            "technology",
+                            "transportation"
+                        ]
+                    }
                 }
             }
         },
