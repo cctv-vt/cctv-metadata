@@ -1,9 +1,11 @@
 const xml2js = require('xml2js')
 const axios = require('axios')
+const dotenv = require("dotenv")
 
+dotenv.config()
 
-//SECTION: Individual field processors making one for every destination field for consistency
-
+//SECTION: Field Processors
+//Individual field processors making one for every destination field for consistency
 const seriesProcessor = (input) => {
     //TODO: I need to hook into a database with series names to complete this
     return input
@@ -134,6 +136,7 @@ const mutate = (nodes, callback) => {
     }
     callback(processedNodes)
 }
+//!SECTION
 
 var year = process.argv[2] || 1994
 
@@ -145,10 +148,12 @@ console.log(year,month,index)
 
 console.log('go')
 
-let url = `https://www.cctv.org/fullexportredo?field_pdate_value%5Bvalue%5D%5Byear%5D=${year}&field_pdate_value%5Bvalue%5D%5Bmonth%5D=${month}&timestamp=${new Date().toString()}`
-
+let url = `https://www.cctv.org/fullexport?field_pdate_value%5Bvalue%5D%5Byear%5D=${year}&field_pdate_value%5Bvalue%5D%5Bmonth%5D=${month}&timestamp=${new Date().toString()}`
 axios.get(url,{
-    
+    headers: {
+        //This cookie fixes the caching issues for soe reason?
+        Cookie: process.env.COOKIE
+    }
 })
 .then((res) => {
     console.log('xml loaded', res.data)
