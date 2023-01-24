@@ -1,5 +1,5 @@
 {
-    "$schema": "./cctv-program-schema.json",
+    "$schema": "../schema/cctv-program-schema.json",
     "title": "Example",
     "description": ""
 }
